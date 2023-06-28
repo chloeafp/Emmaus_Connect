@@ -51,7 +51,7 @@ const ListeSmartphone = () => {
                     </td>
                     
                       <td>
-                      <Link to={`/smartphone_details/${phone.id}`}>
+                      <Link to={`/smartphone_details/${phone.id-1}`}>
                         <AiFillEye />
                         </Link>
                       </td>

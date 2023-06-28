@@ -57,6 +57,7 @@ console.log(smartphoneData);
     })}   
   </tbody>
 </table>
+</div>
         </div>
     );
 };

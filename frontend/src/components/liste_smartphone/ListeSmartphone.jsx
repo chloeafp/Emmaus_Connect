@@ -1,7 +1,21 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import { AiFillEye } from "react-icons/ai";
+import axios from 'axios';
 
 const ListeSmartphone = () => {
+const [smartphoneData, setSmartPhoneData] = useState(undefined)
+
+useEffect(()=> {
+  axios
+  .get(`http://localhost:5002/api/smartphone`)
+  .then((response) => setSmartPhoneData(response.data))
+  .catch((error) => console.error(error.message));
+  
+},[])
+
+console.log(smartphoneData);
+
+
     return (
         <div className="pt-10 flex flex-col gap-10">
             <div className="flex justify-around items-center">
@@ -17,25 +31,22 @@ const ListeSmartphone = () => {
       <th>Marque</th>
       <th>Modèle</th>
       <th>Catégorie</th>
-      <td>19/02/2023</td>
+      <th>Date d'ajout</th>
       <th></th>
     </tr>
   </thead>
   <tbody>
-    <tr class="even:bg-gray-50 odd:bg-white font-light">
-    <td>Samsung</td>
-      <td>Galaxy Note 12</td>      
-      <td>Catégorie</td>
-      <td>19/02/2023</td>
-      <td><AiFillEye/></td>
-    </tr> 
-    <tr class="even:bg-gray-200 odd:bg-white font-light">
-    <td >Samsung</td>
-      <td>Galaxy Note 12</td>      
-      <td>Catégorie</td>
-      <td>19/02/2023</td>
-      <td><AiFillEye/></td>
-    </tr>     
+    {smartphoneData && smartphoneData.map((phone)=> {
+      return (
+        <tr class="even:bg-gray-50 odd:bg-white font-light">
+        <td>{phone.marque}</td>
+          <td>{phone.modele}</td>      
+          <td>{phone.categorie_prix}</td>
+          <td>{phone. date_ajout.split("").slice(0, 10).join("").split("-").reverse().join("/")}</td>
+          <td><AiFillEye/></td>
+        </tr>  
+      )
+    })}   
   </tbody>
 </table>
         </div>

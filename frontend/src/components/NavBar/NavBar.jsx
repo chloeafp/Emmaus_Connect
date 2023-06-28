@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import logo from '../assets/logo.png'
+import logo from '../../assets/logo-200.png'
 import {BsPersonCircle} from 'react-icons/bs';
 import BurgerMenu from './MenuBurger';
 
@@ -16,7 +16,7 @@ const NavBar = () => {
           <NavLink to="">Ajouter un téléphone</NavLink>
         </li>
         <li className="text-l hidden lg:block tracking-wide hover:text-[#E52460] transition">
-          <NavLink to="">Base de données</NavLink>
+          <NavLink to="/smartphone">Base de données</NavLink>
         </li>
         <li className="text-l hidden lg:block tracking-wide hover:text-[#E52460] transition focus:font-bold">
           <NavLink to="">FAQ</NavLink>

@@ -33,7 +33,7 @@ function BurgerMenu() {
                 <NavLink>Ajouter un téléphone</NavLink>
               </li>
               <li className="p-2 hover:text-[#E52460] font-medium">
-                <NavLink to="">Base de données</NavLink>
+                <NavLink to="/smartphone">Base de données</NavLink>
               </li>
               <li className="p-2 hover:text-[#E52460] font-medium">
                 <NavLink to="">FAQ</NavLink>

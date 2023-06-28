@@ -1,15 +1,15 @@
-import NavBar from "./components/NavBar"
+import Router from "./navigation/Router";
+import Login from "./components/Login";
+import NavBar from "./components/NavBar";
+
+
+
 function App() {
-
-
   return (
     <>
-      <NavBar />
-      <p className='text-2xl'>
-        Click on the Vite and React logos to learn more
-      </p>
+      <Router />
     </>
-  )
+  );
 }
 
-export default App
+export default App;

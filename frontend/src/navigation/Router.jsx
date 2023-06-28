@@ -1,10 +1,11 @@
 import React from 'react';
-import { Routes} from "react-router-dom";
+import { Route, Routes} from "react-router-dom";
+import Login from '../components/Login';
 
 const Router = () => {
     return (
         <Routes>
-            
+            <Route  path="/" element={<Login/>}/>
         </Routes>
     );
 };

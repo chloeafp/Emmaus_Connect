@@ -4,10 +4,11 @@ function App() {
 
 
   return (
-    <>
+    <div className="">
       <NavBar />
       <Router /> 
-    </>
+      </div>
+
   )
 }
 

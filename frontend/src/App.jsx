@@ -3,12 +3,10 @@ function App() {
 
 
   return (
-    <>
+    <div className="">
       <NavBar />
-      <p className='text-2xl'>
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      
+      </div>
   )
 }
 

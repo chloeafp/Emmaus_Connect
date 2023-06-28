@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import SmartphoneContext from "../contexts/SmartphoneContext";
 
 const SmartphoneDetails = () => {
   const { smartphoneData } = useContext(SmartphoneContext);
   const params = useParams();
+  const navigate = useNavigate();
 
   if (!smartphoneData || !smartphoneData[params.id]) {
     return <div>Loading...</div>;
@@ -12,6 +13,7 @@ const SmartphoneDetails = () => {
   return (
     <div>
       <h2>Information du téléphone</h2>
+      <button type="button" onClick={() => navigate("/smartphone")}>Retour</button>
       <table className="text-left ">
         <tbody>
           <tr>

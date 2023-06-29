@@ -23,7 +23,7 @@ function App() {
     [smartphoneData,
     setSmartPhoneData,]);
 
-function App() {
+
   return (
 
     <div className="">
@@ -35,5 +35,6 @@ function App() {
 
   );
 }
+
 
 export default App;

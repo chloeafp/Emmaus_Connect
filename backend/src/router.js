@@ -13,6 +13,8 @@ router.post("/api/login", userController.loginCheck);
 router.get("/api/smartphone", smartphoneControllers.findAll);
 router.get("/api/smartphone/:id", smartphoneControllers.findOne);
 
+router.post("/api/smartphone", smartphoneControllers.postPhone);
+
 router.post("/api/avatar", upload.single("avatar"), (req, res) => {
   const { originalname } = req.file;
   console.log(req.file.originalname);

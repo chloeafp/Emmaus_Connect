@@ -3,13 +3,14 @@ import React, { useContext, useState  } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import Menu_filtre from "../menu_filtrage/MenuFiltre";
 import SmartphoneContext from "../contexts/SmartphoneContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 
 const ListeSmartphone = () => {
   const { smartphoneData } = useContext(SmartphoneContext);
   const [search, setSearch] = useState("");
   const [filterArr, setFilterArr] = useState([]);
+  const navigate = useNavigate();
 
   return (
 
@@ -30,8 +31,8 @@ const ListeSmartphone = () => {
             <button className="bg-[#e52460] hover:bg-[#bb1e50] text-white font-bold py-2 px-4 rounded-3xl">
               Exporter un fichier
             </button>
-            <button className="bg-[#00b3b6] hover:bg-[#068284] text-white font-bold py-2 px-4 rounded-3xl">
-              Importer un fichier
+            <button onClick={() => navigate("/import_file")} className="bg-[#00b3b6] hover:bg-[#068284] text-white font-bold py-2 px-4 rounded-3xl">
+             Importer un fichier
             </button>
           </div>
         </div>

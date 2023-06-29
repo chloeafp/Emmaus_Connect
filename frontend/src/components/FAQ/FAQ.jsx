@@ -17,7 +17,7 @@ const FAQ = () => {
         "The best Lorem Ipsum Generator in all the sea! Heave this scurvy copyfiller fer yar next adventure and cajol yar clients into walking the plank with ev'ry layout! Configure above, then get yer pirate ipsum...own the high seas, arg!",
     },
     {
-      question: "Comment modifier un nouveau téléphone ?",
+      question: "Comment importer un ficher csv ?",
       reponse:
         "The best Lorem Ipsum Generator in all the sea! Heave this scurvy copyfiller fer yar next adventure and cajol yar clients into walking the plank with ev'ry layout! Configure above, then get yer pirate ipsum...own the high seas, arg!",
     },
@@ -33,7 +33,7 @@ const FAQ = () => {
     <>
       <NavBar />
 
-      <section className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+      <section className="px-4 mx-auto max-w-screen-md">
         <div className="px-4 mx-auto sm:px-6 lg:px-8 max-w-7xl">
           <div className="max-w-2xl mx-auto text-center">
             <h2 className="mb-4 text-4xl font-extrabold text-center ">

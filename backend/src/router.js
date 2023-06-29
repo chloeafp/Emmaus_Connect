@@ -8,7 +8,7 @@ const upload = multer({ dest: "./public/uploads/" });
 const smartphoneControllers = require("./controllers/smartphoneController");
 const userController = require("./controllers/userController");
 
-router.get("/api/login", userController.loginCheck);
+router.post("/api/login", userController.loginCheck);
 router.get("/api/smartphone", smartphoneControllers.findAll);
 router.get("/api/smartphone/:id", smartphoneControllers.findOne);
 

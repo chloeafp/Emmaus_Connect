@@ -8,9 +8,7 @@ function App() {
   const [smartphoneData, setSmartPhoneData] = useState(undefined)
   const [user, setUser] = useState(undefined)
 
-  console.log("user",user);
   useEffect(() => {
-
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/smartphone`)
       .then((response) => setSmartPhoneData(response.data))

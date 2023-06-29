@@ -22,7 +22,8 @@ router.post("/api/avatar", upload.single("avatar"), (req, res) => {
     fs
         .rename(`./public/uploads/${filename}`, `./public/uploads/${originalname}`, (err) => {
             if (err) throw err;
-            res.send("File uploaded");
+
+            res.send(`./public/uploads/${originalname}`);
         });
 })
 

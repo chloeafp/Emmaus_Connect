@@ -1,7 +1,9 @@
+
 import React, { useState, useEffect, useMemo } from "react";
 import Router from "./navigation/Router";
 import axios from "axios";
 import SmartphoneContext from "./components/contexts/SmartphoneContext";
+
 
 function App() {
   const [smartphoneData, setSmartPhoneData] = useState(undefined)
@@ -32,6 +34,7 @@ function App() {
     </div>
 
   );
+
 }
 
 export default App;

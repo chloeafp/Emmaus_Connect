@@ -14,17 +14,23 @@ const Login = () => {
   return (
     <div class="h-screen flex items-center justify-center">
       {/* conteneur global */}
-      <div>
+
+      <div className="bg-[#F9F9F9] p-2 w-3/4 h-2/3 flex justify-center">
         {/* conteneur de l'élément central */}
-        <div className=" flex h-96 ">
-          {/* partie gauche */}
-          <div className="flex-row w-96">
-            <div className="flex justify-center">
+
+    
+
+          <div className="w-[55%] my-auto" >
+          <div className="flex justify-center ">
               <img src={Logo} alt="le Logo" />
             </div>
-            <div className="my-7 font-bold font-poppins flex justify-center">
+          <div className="">
+         
+
+            <div className="my-7 font-bold font-poppins flex justify-center text-xl">
               Se connecter à votre compte
             </div>
+
             <form>
               <div className="flex justify-center">
                 <input
@@ -59,10 +65,11 @@ const Login = () => {
                 </div>
               </div>
             </form>
+           </div> 
           </div>
 
           {/* conteneur de la partie droite */}
-          <div className="bg-[#00ACB0] text-white flex flex-col justify-center items-center w-64 ">
+          <div className="bg-[#00ACB0] text-white flex flex-col justify-center items-center w-[45%] text-xl">
             <div right login text>
               Bienvenue sur votre espace
             </div>
@@ -74,7 +81,7 @@ const Login = () => {
               <p>Contactez le référent</p> <p>de votre lieu de vente.</p>
             </div>
           </div>
-        </div>
+        
       </div>
     </div>
   );

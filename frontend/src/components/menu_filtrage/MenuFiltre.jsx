@@ -1,8 +1,21 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import SearchBar from './SearchBar';
 import Checkbox from './Checkbox';
 
 const Menu_filtre = ({search, setSearch, filterArr, setFilterArr}) => {
+
+    useEffect(() =>
+    {
+setFilterArr([
+{name: "2 - C", filterFunc: (phone) => phone.categorie_prix === 2},
+{name: "3 - B", filterFunc: (phone) => phone.categorie_prix === 3},
+{name: "4 - A", filterFunc: (phone) => phone.categorie_prix === 4},
+{name: "5 - Premium", filterFunc: (phone) => phone.categorie_prix === 5}
+])
+},[])
+
+
+    console.log(filterArr);
     const category = [
         {name: "1 - HC", filterFunc: (phone) => phone.categorie_prix === 1},
         {name: "2 - C", filterFunc: (phone) => phone.categorie_prix === 2},

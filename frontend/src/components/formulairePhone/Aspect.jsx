@@ -49,30 +49,24 @@ const Aspect = ({ data, setData, setPage }) => {
                 <div className="text-[#00b3b6]  relative text-center w-full ">Aspect général</div>
                 <div> 3/3</div>
             </div>
-            <div className="mt-8  font-semibold">{avancement[index]}</div>
-            {index < 3 && <div className="flex my-8">
-                <button className="hover:bg-[#00b3b6] focus:bg-[#00b3b6] focus:text-white hover:text-white cursor-pointer w-1/4 ml-[20px] border-4 border-[#00b3b6] rounded-md flex justify-center items-center px-4 py-2 bg-[#fcfcfc]"
-                    id={20} onClick={handleClick} value="pas du tout">Aucunes </button>
-                <button className="  hover:bg-[#00b3b6] focus:bg-[#00b3b6]  focus:text-white hover:text-white cursor-pointer w-1/4 ml-[20px] border-4 border-[#00b3b6] rounded-md flex justify-center items-center px-4 py-2 bg-[#fcfcfc]"
-                    id={14} onClick={handleClick} value="un peu">Légères</button>
-                <button className=" hover:bg-[#00b3b6]  focus:bg-[#00b3b6] focus:text-white hover:text-white cursor-pointer w-1/4 ml-[20px] border-4 border-[#00b3b6] rounded-md flex justify-center items-center px-4 py-2 bg-[#fcfcfc]"
-                    id={7} onClick={handleClick} value="bcp">Marquées </button>
-                <button className=" hover:bg-[#00b3b6]  focus:bg-[#00b3b6] focus:text-white hover:text-white cursor-pointer w-1/4 ml-[20px] border-4 border-[#00b3b6] rounded-md flex justify-center items-center px-4 py-2 bg-[#fcfcfc]"
-                    id={0} onClick={handleClick} value="trop">Très marquées</button>
 
-            </div>}
+            {index < 3 &&
+                <>
+                    <div className="mt-8  font-semibold">{avancement[index]}</div>
+                    <div className="flex my-8">
+                        <button className="hover:bg-[#00b3b6] focus:bg-[#00b3b6] focus:text-white hover:text-white cursor-pointer w-1/4 ml-[20px] border-4 border-[#00b3b6] rounded-md flex justify-center items-center px-4 py-2 bg-[#fcfcfc]"
+                            id={20} onClick={handleClick} value="pas du tout">Aucunes </button>
+                        <button className="  hover:bg-[#00b3b6] focus:bg-[#00b3b6]  focus:text-white hover:text-white cursor-pointer w-1/4 ml-[20px] border-4 border-[#00b3b6] rounded-md flex justify-center items-center px-4 py-2 bg-[#fcfcfc]"
+                            id={14} onClick={handleClick} value="un peu">Légères</button>
+                        <button className=" hover:bg-[#00b3b6]  focus:bg-[#00b3b6] focus:text-white hover:text-white cursor-pointer w-1/4 ml-[20px] border-4 border-[#00b3b6] rounded-md flex justify-center items-center px-4 py-2 bg-[#fcfcfc]"
+                            id={7} onClick={handleClick} value="bcp">Marquées </button>
+                        <button className=" hover:bg-[#00b3b6]  focus:bg-[#00b3b6] focus:text-white hover:text-white cursor-pointer w-1/4 ml-[20px] border-4 border-[#00b3b6] rounded-md flex justify-center items-center px-4 py-2 bg-[#fcfcfc]"
+                            id={0} onClick={handleClick} value="trop">Très marquées</button>
 
-            {index === 3 && <div className="flex flex-col">
+                    </div>
+                </>}
 
 
-                <div className="mt-8"> D'après vos réponse téléphone est : {data.desc} (pondération du prix de {data.ponderation})</div>
-                <button type="submit" className="mt-8 hover:bg-[#bb1e50] bg-[#e52460] text-white rounded-3xl py-2 px-4 w-1/6 "
-                    onClick={setPage("Smartphone")}
-                >
-                    Valider
-                </button>
-
-            </div>}
 
 
             {index < 2 && <div className="flex justify-end">
@@ -88,9 +82,21 @@ const Aspect = ({ data, setData, setPage }) => {
                 <button type="submit" className=" hover:bg-[#bb1e50] bg-[#e52460] text-white rounded-3xl py-2 px-4 w-1/6 "
                     onClick={handleNext}
                 >
-                    terminer
+                    Terminer
                 </button>
             </div>}
+            {index === 3 &&
+                <div className="flex flex-col">
+
+
+                    <div className="mt-8"> D'après vos réponse téléphone est {data.desc} (pondération du prix de {data.ponderation} %)</div>
+                    <button type="submit" className="mt-8 hover:bg-[#bb1e50] bg-[#e52460] text-white rounded-3xl py-2 px-4 w-1/6 "
+                        onClick={() => setPage("Smartphone")}
+                    >
+                        Valider
+                    </button>
+
+                </div>}
         </div>
 
     );

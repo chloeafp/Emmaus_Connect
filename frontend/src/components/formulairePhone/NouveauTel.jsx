@@ -11,13 +11,13 @@ const NouveauTel = () => {
     useEffect(() => setPage("General"), [])
     const [categ, setCateg] = useState(undefined)
     const [data, setData] = useState({
-        marque: "", annee: "", marque: "", chargeur_cable: false, ram: "",
+        marque: "", annee: "", chargeur_cable: false, ram: "",
         stockage: "",
         etat: "",
         ecran: "",
         reseau: "",
         systeme_exploitation: "",
-        url: "",
+        image: "",
         point_vente_id: 1
     })
     const [page, setPage] = useState("General")

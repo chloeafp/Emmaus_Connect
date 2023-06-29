@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import Logo from "../assets/logo.png";
+import Logo from "../assets/logo-200.png";
 import {useNavigate} from "react-router-dom";
 import axios from "axios";
 import UserContext from "./contexts/UserContext";
@@ -49,7 +49,7 @@ else {
           <div className="">
          
 
-            <div className="my-7 font-bold font-poppins flex justify-center text-xl">
+            <div className="my-7 font-bold font-poppins text-center flex justify-center text-xl">
               Se connecter à votre compte
             </div>
 
@@ -93,7 +93,7 @@ else {
           </div>
 
           {/* conteneur de la partie droite */}
-          <div className="bg-[#00ACB0] text-white flex flex-col justify-center items-center w-[45%] text-xl">
+          <div className="bg-[#00ACB0] text-center text-white flex flex-col justify-center items-center w-[45%] text-xl">
             <div>
               Bienvenue sur votre espace
             </div>

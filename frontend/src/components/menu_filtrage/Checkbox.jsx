@@ -8,11 +8,10 @@ const Checkbox = ({name,  filterArr, setFilterArr, filterFunc}) => {
         {
 if (name === "5 - Premium" || name === "2 - C" ||name === "3 - B"||name === "4 - A") {
     setCheck(true)
-    setFilterArr([...filterArr, { name, filterFunc }]);
 } 
     },[])
 
-    const filterHandler = (e) => {      
+    const filterHandler = () => {      
         let temp = [];
         if (!check) { 
             setCheck(!check)           

@@ -95,7 +95,7 @@ console.log(smartphoneData);
                     </td>
 
                     <td>
-                      <Link to={`/smartphone_details/${phone.id-1}`}>
+                      <Link to={`/smartphone_details/${phone.id}`}>
                         <AiOutlineInfoCircle className="text-2xl hover:text-[#e52460] transition hover:scale-110"/>
                       </Link>
                     </td>

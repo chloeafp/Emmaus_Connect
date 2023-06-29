@@ -1,26 +1,17 @@
 import React, { useState } from 'react';
 
 const Technique = ({ data, setData, setPage }) => {
-    const [phoneTech, setPhoneTech] = useState({
-        ram: "", stockage: "", etat: "", ecran: "", reseau: ""
-    })
+
     const [error, setError] = useState("")
     const handleInput = (e) => {
 
         e.persist()
-        setPhoneTech({ ...phoneTech, [e.target.id]: e.target.value });
-        console.warn(phoneTech)
+        setData({ ...data, [e.target.id]: e.target.value });
+        console.warn(data)
     }
     const savePhoneTech = (e) => {
         e.preventDefault();
-        setData({
-            ...data,
-            ram: phoneTech.ram,
-            stockage: phoneTech.stockage,
-            etat: phoneTech.etat,
-            ecran: phoneTech.ecran,
-            reseau: phoneTech.reseau,
-        })
+
 
         setPage("Aspect")
     }
@@ -58,15 +49,19 @@ const Technique = ({ data, setData, setPage }) => {
                                     onChange={handleInput}
                                 >
                                     <option value=""></option>
-                                    <option value="2-">Moins de 2go</option>
+                                    <option value="moins de 2">Moins de 2go</option>
                                     <option value="2">2 go</option>
+                                    <option value="3">3 go</option>
                                     <option value="4">
-                                        3-4 go
+                                        4 go
+                                    </option>
+                                    <option value="6">
+                                        6 go
                                     </option>
                                     <option value="8">
-                                        6-8 go
+                                        8 go
                                     </option>
-                                    <option value="12+">
+                                    <option value="plus de 12">
                                         12 go et plus </option>
                                 </select>
                                 <span className="text-[#e52460] pb-3">{error}</span>
@@ -80,15 +75,22 @@ const Technique = ({ data, setData, setPage }) => {
                                     onChange={handleInput}
                                 >
                                     <option value=""></option>
-                                    <option value="16-">Moins de 16go</option>
-                                    <option value="16-32">16-32 go </option>
-                                    <option value="64-128">
-                                        64-128 go
+                                    <option value="moins de 16">Moins de 16go</option>
+                                    <option value="16">16 go </option>
+                                    <option value="32">32 go </option>
+                                    <option value="64">
+                                        64 go
                                     </option>
-                                    <option value="256-512">
-                                        256-512 go
+                                    <option value="128">
+                                        128 go
                                     </option>
-                                    <option value="1000+">
+                                    <option value="256">
+                                        256 go
+                                    </option>
+                                    <option value="512">
+                                        512 go
+                                    </option>
+                                    <option value="plus de 1000">
                                         1 to et plus </option>
                                 </select>
                                 <span className="text-[#e52460] pb-3">{error}</span>
@@ -125,7 +127,7 @@ const Technique = ({ data, setData, setPage }) => {
                                     onChange={handleInput}
                                 >
                                     <option value=""></option>
-                                    <option value="4-">moins de 4 pouces</option>
+                                    <option value="moins de 4">moins de 4 pouces</option>
                                     <option value="4">4 pouces</option>
                                     <option value="5">
                                         5 pouces
@@ -133,7 +135,7 @@ const Technique = ({ data, setData, setPage }) => {
                                     <option value="6">
                                         6 pouces
                                     </option>
-                                    <option value="7">
+                                    <option value="plus de 7">
                                         7 pouces ou plus</option>
                                 </select>
                                 <span className="text-[#e52460] pb-3">{error}</span>
@@ -148,13 +150,26 @@ const Technique = ({ data, setData, setPage }) => {
                                     <option value=""></option>
 
                                     <option value="<4">3G ou moins</option>
-                                    <option value="4">
+                                    <option value="4G">
                                         4G
                                     </option>
-                                    <option value="5">
+                                    <option value="5G">
                                         5G
                                     </option>
 
+                                </select>
+                                <span className="text-[#e52460] pb-3">{error}</span>
+                            </label>
+                            <label className=" flex flex-col">
+                                Système d'exploitation
+                                <select
+                                    className=" bg-white border-solid border-2 border-black text-black w-full h-10 px-4 py-2 rounded-md mb-4"
+                                    id="systeme_exploitation"
+                                    onChange={handleInput}
+                                >
+                                    <option value=""></option>
+                                    <option value="Android">Android </option>
+                                    <option value="IOS">IOS</option>
                                 </select>
                                 <span className="text-[#e52460] pb-3">{error}</span>
                             </label>

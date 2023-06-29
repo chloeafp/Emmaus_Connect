@@ -62,9 +62,8 @@ const SmartphoneDetails = () => {
                 </tr>
                 <tr>
                   <th>Câble et chargeur fournis :</th>
-                  <td>{`${
-                    smartphoneData[params.id].chargeur_cable ? "Oui" : "Non"
-                  }`}</td>
+                  <td>{`${smartphoneData[params.id].chargeur_cable ? "Oui" : "Non"
+                    }`}</td>
                 </tr>
               </tbody>
             </table>

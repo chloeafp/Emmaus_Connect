@@ -4,24 +4,18 @@ import axios from 'axios'
 
 const General = ({ data, setData, setPage }) => {
     const inputRef = useRef(null)
-    const [phone, setPhone] = useState({
-        marque: "",
-        année: null,
-        modèle: "",
-        chargeur: false,
 
-    });
     const [error, setError] = useState("")
     const handleInput = (e) => {
         e.persist();
-        setPhone({ ...phone, [e.target.name]: e.target.value });
-        console.warn(phone)
+        setData({ ...data, [e.target.name]: e.target.value });
+        console.warn(data)
 
     }
     const handleClick = () => {
 
 
-        setPhone({ ...phone, chargeur: !phone.chargeur });
+        setData({ ...data, chargeur_cable: data.chargeur_cable });
         console.warn(phone)
     }
 
@@ -32,14 +26,14 @@ const General = ({ data, setData, setPage }) => {
         formData.append("avatar", inputRef.current.files[0]);
         setData({
             ...data,
-            marque: phone.marque,
-            année: phone.année,
-            modèle: phone.modèle,
-            chargeur: phone.chargeur,
+
             avatar: inputRef.current.files[0]
         })
 
-        inputRef.current.files[0] && axios.post("http://localhost:5002/api/avatar", formData)
+        inputRef.current.files[0] && axios.post("http://localhost:5002/api/avatar", formData).then((response) => {
+            const url = "http://localhost:5002" + response.data.split("").slice(1).join("")
+            setData({ ...data, url: url });
+        })
         setPage("Technique")
     }
 
@@ -69,7 +63,7 @@ const General = ({ data, setData, setPage }) => {
                                     type="text"
                                     name="marque"
 
-                                    value={phone.marque}
+                                    value={data.marque}
                                     onChange={handleInput}
                                 >
                                 </input>
@@ -80,9 +74,9 @@ const General = ({ data, setData, setPage }) => {
                                 <input
                                     className=" bg-white  border-black border-solid border-2 text-black w-full h-10 px-4 py-2 rounded-md mb-4"
                                     type="text"
-                                    name="année"
+                                    name="annee"
 
-                                    value={phone.année}
+                                    value={data.annee}
                                     onChange={handleInput}
                                 >
                                 </input>
@@ -109,9 +103,9 @@ const General = ({ data, setData, setPage }) => {
                                 <input
                                     className=" bg-white border-solid border-black border-2 text-black w-full h-10 px-4 py-2 rounded-md mb-4"
                                     type="text"
-                                    name="modèle"
+                                    name="modele"
 
-                                    value={phone.modèle}
+                                    value={data.modele}
                                     onChange={handleInput}
                                 >
                                 </input>
@@ -123,7 +117,7 @@ const General = ({ data, setData, setPage }) => {
                                 <input
                                     className=" bg-white border-solid border-2 border-black text-black flex items-center "
                                     type="checkbox"
-                                    name="chargeur"
+                                    name="chargeur_cable"
 
 
                                     onClick={handleClick}

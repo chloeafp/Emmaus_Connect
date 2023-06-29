@@ -3,7 +3,7 @@ import SearchBar from './SearchBar';
 import Checkbox from './Checkbox';
 
 const Menu_filtre = ({search, setSearch, filterArr, setFilterArr}) => {
-
+console.log("filter",filterArr);
     useEffect(() =>
     {
 setFilterArr([

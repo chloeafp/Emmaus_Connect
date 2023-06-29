@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { Link, NavLink, useNavigate } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo-200.png";
 import { BsPersonCircle } from "react-icons/bs";
 import BurgerMenu from "./MenuBurger";
@@ -7,14 +7,6 @@ import UserContext from "../contexts/UserContext";
 
 const NavBar = () => {
   const { user, setUser } = useContext(UserContext);
-  const navigate = useNavigate();
-
-  const handleLogout = () => {
-   navigate("/");
-    setUser({ email: "email", password: "Mot de passe" });
-  
-  };
-  
 
   return (
     <nav className="bg-[#F9F9F9] px-6 shadow-[0px_1px_5px_2px_#00000024] w-full mb-20">
@@ -34,13 +26,15 @@ const NavBar = () => {
           </li>
         </ul>
         <div className="flex items-center gap-2 ">
-          <BsPersonCircle
-            className="text-[#E52460] text-3xl hidden lg:block"
-            onClick={handleLogout}
-          />
+         
           <p className="hidden lg:block text-lg font-light">
             {user && user.prenom}
-          </p>
+          </p> 
+          <NavLink to="/Logout">
+          <BsPersonCircle
+            className="text-[#E52460] text-3xl hidden lg:block"
+   
+          /></NavLink>
           <BurgerMenu className="block md:hidden" />
         </div>
       </div>

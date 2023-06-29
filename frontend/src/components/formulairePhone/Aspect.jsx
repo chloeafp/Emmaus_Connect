@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-const Aspect = ({ data, setData, page }) => {
+const Aspect = ({ data, setData, setPage }) => {
     console.warn(data)
     const [note, setNote] = useState([])
     const [index, setIndex] = useState(0)
@@ -67,6 +67,7 @@ const Aspect = ({ data, setData, page }) => {
                 <div className="mt-8">{note[0].intitule} de rayures, {note[1].intitule} de chocs, {note[2].intitule} de salissures</div>
                 <div className="mt-8"> Votre téléphone est : {data.desc}</div>
                 <button type="submit" className="mt-8 hover:bg-[#bb1e50] bg-[#e52460] text-white rounded-3xl py-2 px-4 w-1/6 "
+                    onClick={setPage("Smartphone")}
                 >
                     Valider
                 </button>

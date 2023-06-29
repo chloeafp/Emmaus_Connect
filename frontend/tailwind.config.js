@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        poppins: ["Poppins", "ui-sans-serif", "system-ui"],
+        sans: ["Poppins", "sans-serif"],
       },
     },
   },

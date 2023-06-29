@@ -3,7 +3,6 @@ import React, { useContext, useState  } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import Menu_filtre from "../menu_filtrage/MenuFiltre";
 import SmartphoneContext from "../contexts/SmartphoneContext";
-import NavBar from "../navbar/NavBar";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 

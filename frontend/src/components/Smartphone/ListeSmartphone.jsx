@@ -28,9 +28,6 @@ const ListeSmartphone = () => {
         <div className="flex justify-between items-center">
           <h2 className="mb-4 text-4xl font-extrabold text-center">Base de données</h2>
           <div className="flex justify-around gap-10">
-            <button className="bg-[#e52460] hover:bg-[#bb1e50] text-white font-bold py-2 px-4 rounded-3xl">
-              Exporter un fichier
-            </button>
             <button onClick={() => navigate("/import_file")} className="bg-[#00b3b6] hover:bg-[#068284] text-white font-bold py-2 px-4 rounded-3xl">
              Importer un fichier
             </button>

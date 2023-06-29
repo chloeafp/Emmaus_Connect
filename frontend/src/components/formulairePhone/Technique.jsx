@@ -25,27 +25,35 @@ const Technique = ({ data, setData, setPage }) => {
         setPage("Aspect")
     }
     return (
-        <div className="flex-col mx-[10%] ">
-            <div className="text-[#00b3b6] font-bold  flex justify-between mt-6 bg-[#d9d9d9] p-2">
-                <div >Informations Techniques</div>
-                <div> 2/3</div>
+        <div className="flex-col mx-[10%] mt-[5%]">
+            <div className="text-[#00b3b6] font-bold  flex  flex-end mt-6 bg-[#fcfcfc] p-2 w-full text-xl">
+
+                <div className="text-[#00b3b6]  relative text-center w-full ">Informations Techniques</div>
+                <div className=" "> 2/3</div>
+
             </div>
-            <div className="mt-8">
+
+
+
+
+
+
+            <div className="mt-8 p-3 font-semibold">
                 Renseignez les champ suivants :
 
             </div>
             <div>
                 <form
-                    className="mt-6 flex flex-col px-3 "
+                    className="mt-6 flex flex-col  "
                     onSubmit={savePhoneTech}
 
                 >
-                    <div className="flex justify-between">
-                        <div className="flex flex-col">
-                            <label className=" flex flex-col">
+                    <div className="flex justify-between gap-6">
+                        <div className="flex flex-col w-1/2 bg-[#fcfcfc] p-3">
+                            <label className=" flex flex-col ">
                                 Ram :
                                 <select
-                                    className=" bg-white border-solid border-2 text-black w-full h-10 px-4 py-2 rounded-md mb-4"
+                                    className=" bg-white border-solid border-2 border-black text-black w-full h-10 px-4 py-2 rounded-md mb-4"
                                     id="ram"
                                     onChange={handleInput}
                                 >
@@ -67,7 +75,7 @@ const Technique = ({ data, setData, setPage }) => {
                             <label className=" flex flex-col">
                                 Stockage :
                                 <select
-                                    className=" bg-white border-solid border-2 text-black w-full h-10 px-4 py-2 rounded-md mb-4"
+                                    className=" bg-white border-solid border-2 border-black text-black w-full h-10 px-4 py-2 rounded-md mb-4"
                                     id="stockage"
                                     onChange={handleInput}
                                 >
@@ -88,31 +96,31 @@ const Technique = ({ data, setData, setPage }) => {
                             <label className=" flex flex-col">
                                 Etat :
                                 <select
-                                    className=" bg-white border-solid border-2 text-black w-full h-10 px-4 py-2 rounded-md mb-4"
+                                    className=" bg-white border-solid border-2 border-black text-black w-full h-10 px-4 py-2 rounded-md mb-4"
                                     id="etat"
                                     onChange={handleInput}
                                 >
                                     <option value=""></option>
                                     <option value="DEEE">DEEE</option>
-                                    <option value="Réparable">Réparable</option>
-                                    <option value="Bloque">
+                                    <option value="Reparable">Réparable</option>
+                                    <option value="bloque">
                                         Bloqué
                                     </option>
-                                    <option value="Reconditionable">
+                                    <option value="reconditionable">
                                         Reconditionable
                                     </option>
-                                    <option value="Reconditionne">
+                                    <option value="reconditionne">
                                         Reconditionne</option>
                                 </select>
                                 <span className="text-[#e52460] pb-3">{error}</span>
                             </label>
                         </div>
-                        <div className="flex-col">
+                        <div className="flex-col w-1/2 bg-[#fcfcfc] p-3">
 
                             <label className=" flex flex-col">
                                 Ecran :
                                 <select
-                                    className=" bg-white border-solid border-2 text-black w-full h-10 px-4 py-2 rounded-md mb-4"
+                                    className=" bg-white border-solid border-2 border-black text-black w-full h-10 px-4 py-2 rounded-md mb-4"
                                     id="ecran"
                                     onChange={handleInput}
                                 >
@@ -133,13 +141,13 @@ const Technique = ({ data, setData, setPage }) => {
                             <label className=" flex flex-col">
                                 Reseau :
                                 <select
-                                    className=" bg-white border-solid border-2 text-black w-full h-10 px-4 py-2 rounded-md mb-4"
+                                    className=" bg-white border-solid border-2 border-black text-black w-full h-10 px-4 py-2 rounded-md mb-4"
                                     id="reseau"
                                     onChange={handleInput}
                                 >
                                     <option value=""></option>
-                                    <option value="2">2G</option>
-                                    <option value="3">3G</option>
+
+                                    <option value="<4">3G ou moins</option>
                                     <option value="4">
                                         4G
                                     </option>
@@ -165,7 +173,7 @@ const Technique = ({ data, setData, setPage }) => {
 
                     <div className="flex justify-end">
 
-                        <button type="submit" className="bg-[#e52460] text-white rounded-md py-2 px-4 w-1/4 "
+                        <button type="submit" className=" hover:bg-[#bb1e50] bg-[#e52460] text-white rounded-3xl py-2 px-4 w-1/6 "
                         >
                             Suivant
                         </button>

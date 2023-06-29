@@ -49,13 +49,12 @@ const ListeSmartphone = () => {
                         .reverse()
                         .join("/")}
                     </td>
-                    
-                      <td>
-                      <Link to={`/smartphone_details/${phone.id-1}`}>
+
+                    <td>
+                      <Link to={`/smartphone_details/${phone.id - 1}`}>
                         <AiFillEye />
-                        </Link>
-                      </td>
-                    
+                      </Link>
+                    </td>
                   </tr>
                 );
               })}

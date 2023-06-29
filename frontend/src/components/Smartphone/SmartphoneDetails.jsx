@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import NavBar from "../navbar/NavBar";
+import NavBar from "../Navbar/NavBar";
 import SmartphoneContext from "../contexts/SmartphoneContext";
 import iphoneTest from "../../assets/iphone-test.png";
 

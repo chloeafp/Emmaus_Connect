@@ -67,7 +67,7 @@ const ListeSmartphone = () => {
               )
               .map((phone) => {
                 return (
-                  <tr className="even:bg-gray-50 odd:bg-white font-light hover:bg-[#F9F9F9] transition p-6 h-10 hover:font-medium">
+                  <tr className="even:bg-gray-50 odd:bg-white font-light " key={phone.modele}>
                     <td>{phone.marque}</td>
                     <td>{phone.modele}</td>
                     <td>{phone.categorie_prix}</td>

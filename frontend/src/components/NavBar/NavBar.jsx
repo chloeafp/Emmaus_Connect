@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import logo from "../../assets/logo-200.png";
 import { BsPersonCircle } from "react-icons/bs";
 import BurgerMenu from "./MenuBurger";
+import UserContext from "../contexts/UserContext";
 
 const NavBar = () => {
+  const {user} = useContext(UserContext)
   return (
     <nav className="bg-[#F9F9F9] px-6 shadow-[0px_1px_5px_2px_#00000024] w-full">
       <div className="flex justify-between items-center h-28 max-w-screen-2xl m-auto">
@@ -24,7 +26,7 @@ const NavBar = () => {
       </ul>
       <div className="flex items-center gap-2 ">
         <BsPersonCircle className="text-[#E52460] text-3xl hidden lg:block" />
-        <p className="hidden lg:block text-lg font-light">Profile</p>
+        <p className="hidden lg:block text-lg font-light">{user && user.prenom}</p>
         <BurgerMenu className="block md:hidden" />
       </div>
       </div>

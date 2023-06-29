@@ -38,7 +38,63 @@ const findOne = (req, res) => {
     });
 };
 
+const postPhone = (req, res) => {
+  database
+    .query(
+      `
+  INSERT INTO
+smartphone (
+point_vente_id,
+modele,
+marque,
+systeme_exploitation,
+ecran,
+reseau,
+annee_fabrication,
+date_ajout,
+etat,
+stockage,
+ram,
+verrouillage,
+chargeur_cable,
+ponderation,
+categorie_prix,
+image
+)
+VALUES (?,?,?,?,?,?,?,NOW(),?,?,?,?,?,?,?,?)`,
+      [
+        req.body.point_vente_id,
+        req.body.modele,
+        req.body.marque,
+        req.body.systeme_exploitation,
+        req.body.ecran,
+        req.body.reseau,
+        req.body.annee_fabrication,
+        req.body.etat,
+        req.body.stockage,
+        req.body.ram,
+        req.body.verrouillage,
+        req.body.chargeur_cable,
+        req.body.ponderation,
+        req.body.categorie_prix,
+        req.body.image,
+      ]
+    )
+    .then(([result]) => {
+      if (result.affectedRows === 0) {
+        res.sendStatus(404);
+      } else {
+        res.sendStatus(204);
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+      res.sendStatus(500);
+    });
+};
+
 module.exports = {
   findAll,
   findOne,
+  postPhone,
 };

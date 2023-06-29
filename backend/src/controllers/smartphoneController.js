@@ -1,6 +1,6 @@
 require("dotenv").config();
 const mysql = require("mysql2/promise");
-
+const calculPrix = require('./calculPrix')
 const database = mysql.createPool({
   host: process.env.DB_HOST, // address of the server
   port: process.env.DB_PORT, // port of the DB server (mysql), not to be confused with the APP_PORT !
@@ -56,6 +56,15 @@ const destroy = (req, res) => {
 };
 
 const postPhone = (req, res) => {
+  req.body.categorie_prix = calculPrix.calculPrix(
+    req.body.ecran,
+    req.body.reseau,
+    req.body.etat,
+    req.body.stockage,
+    req.body.ram,
+    req.body.chargeur_cable
+  );
+  console.log(req.body)
   database
     .query(
       `
@@ -98,10 +107,13 @@ VALUES (?,?,?,?,?,?,?,NOW(),?,?,?,?,?,?,?,?)`,
       ]
     )
     .then(([result]) => {
+
       if (result.affectedRows === 0) {
         res.sendStatus(404);
       } else {
-        res.sendStatus(204);
+        console.log(result)
+        res.send(req.body).status(204);
+
       }
     })
     .catch((err) => {

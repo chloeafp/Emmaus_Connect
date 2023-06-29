@@ -75,7 +75,7 @@ const Technique = ({ data, setData, setPage }) => {
                                     onChange={handleInput}
                                 >
                                     <option value=""></option>
-                                    <option value="moins de 16">Moins de 16go</option>
+                                    <option value="0">Moins de 16go</option>
                                     <option value="16">16 go </option>
                                     <option value="32">32 go </option>
                                     <option value="64">
@@ -90,7 +90,7 @@ const Technique = ({ data, setData, setPage }) => {
                                     <option value="512">
                                         512 go
                                     </option>
-                                    <option value="plus de 1000">
+                                    <option value="1000">
                                         1 to et plus </option>
                                 </select>
                                 <span className="text-[#e52460] pb-3">{error}</span>
@@ -127,7 +127,7 @@ const Technique = ({ data, setData, setPage }) => {
                                     onChange={handleInput}
                                 >
                                     <option value=""></option>
-                                    <option value="moins de 4">moins de 4 pouces</option>
+                                    <option value="0">moins de 4 pouces</option>
                                     <option value="4">4 pouces</option>
                                     <option value="5">
                                         5 pouces
@@ -135,7 +135,7 @@ const Technique = ({ data, setData, setPage }) => {
                                     <option value="6">
                                         6 pouces
                                     </option>
-                                    <option value="plus de 7">
+                                    <option value="7">
                                         7 pouces ou plus</option>
                                 </select>
                                 <span className="text-[#e52460] pb-3">{error}</span>
@@ -149,7 +149,7 @@ const Technique = ({ data, setData, setPage }) => {
                                 >
                                     <option value=""></option>
 
-                                    <option value="<4">3G ou moins</option>
+                                    <option value="3G">3G ou moins</option>
                                     <option value="4G">
                                         4G
                                     </option>

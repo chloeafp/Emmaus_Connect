@@ -76,7 +76,9 @@ console.log(smartphoneData);
                 </tr>
               </tbody>
             </table>
+
             <img src={smartphoneData.image ? smartphoneData.image:iphoneTest} alt="iphone" className="h-96" />
+
           </div>
         </div>
       </div>

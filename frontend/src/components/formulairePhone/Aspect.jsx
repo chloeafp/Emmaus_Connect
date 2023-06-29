@@ -4,7 +4,7 @@ const Aspect = ({ data, setData, setPage }) => {
     console.warn(data)
     const [note, setNote] = useState([])
     const [index, setIndex] = useState(0)
-    const [avancement, setAvancement] = useState(["Rayures : ", "Chocs : ", "Salissures :", "Recapitulatif de l'état du téléphone :"])
+    const [avancement, setAvancement] = useState(["Rayures : ", "Marques de chocs : ", "Salissures :", "Recapitulatif de l'état du téléphone :"])
     const [questionTmp, setQuestionTmp] = useState({
         note: null, intitule: ""
     })
@@ -52,20 +52,20 @@ const Aspect = ({ data, setData, setPage }) => {
             <div className="mt-8  font-semibold">{avancement[index]}</div>
             {index < 3 && <div className="flex my-8">
                 <button className="hover:bg-[#00b3b6] focus:bg-[#00b3b6] focus:text-white hover:text-white cursor-pointer w-1/4 ml-[20px] border-4 border-[#00b3b6] rounded-md flex justify-center items-center px-4 py-2 bg-[#fcfcfc]"
-                    id={20} onClick={handleClick} value="pas du tout">pas du tout </button>
+                    id={20} onClick={handleClick} value="pas du tout">Aucunes </button>
                 <button className="  hover:bg-[#00b3b6] focus:bg-[#00b3b6]  focus:text-white hover:text-white cursor-pointer w-1/4 ml-[20px] border-4 border-[#00b3b6] rounded-md flex justify-center items-center px-4 py-2 bg-[#fcfcfc]"
-                    id={14} onClick={handleClick} value="un peu">un peu </button>
+                    id={14} onClick={handleClick} value="un peu">Légères</button>
                 <button className=" hover:bg-[#00b3b6]  focus:bg-[#00b3b6] focus:text-white hover:text-white cursor-pointer w-1/4 ml-[20px] border-4 border-[#00b3b6] rounded-md flex justify-center items-center px-4 py-2 bg-[#fcfcfc]"
-                    id={7} onClick={handleClick} value="bcp">bcp </button>
+                    id={7} onClick={handleClick} value="bcp">Marquées </button>
                 <button className=" hover:bg-[#00b3b6]  focus:bg-[#00b3b6] focus:text-white hover:text-white cursor-pointer w-1/4 ml-[20px] border-4 border-[#00b3b6] rounded-md flex justify-center items-center px-4 py-2 bg-[#fcfcfc]"
-                    id={0} onClick={handleClick} value="trop">trop</button>
+                    id={0} onClick={handleClick} value="trop">Très marquées</button>
 
             </div>}
 
             {index === 3 && <div className="flex flex-col">
 
-                <div className="mt-8">{note[0].intitule} de rayures, {note[1].intitule} de chocs, {note[2].intitule} de salissures</div>
-                <div className="mt-8"> Votre téléphone est : {data.desc}</div>
+
+                <div className="mt-8"> D'après vos réponse téléphone est : {data.desc} (pondération du prix de {data.ponderation})</div>
                 <button type="submit" className="mt-8 hover:bg-[#bb1e50] bg-[#e52460] text-white rounded-3xl py-2 px-4 w-1/6 "
                     onClick={setPage("Smartphone")}
                 >

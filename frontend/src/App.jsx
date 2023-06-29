@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect, useMemo } from "react";
 import Router from "./navigation/Router";
 import axios from "axios";
@@ -8,10 +7,10 @@ import SmartphoneContext from "./components/contexts/SmartphoneContext";
 function App() {
   const [smartphoneData, setSmartPhoneData] = useState(undefined)
 
-
   useEffect(() => {
+
     axios
-      .get(`http://localhost:5004/api/smartphone`)
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/smartphone`)
       .then((response) => setSmartPhoneData(response.data))
       .catch((error) => console.error(error.message));
   }, []);

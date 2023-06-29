@@ -4,6 +4,7 @@ import NavBar from "../navbar/NavBar";
 import SmartphoneContext from "../contexts/SmartphoneContext";
 import iphoneTest from "../../assets/iphone-test.png";
 
+
 const SmartphoneDetails = () => {
   const { smartphoneData } = useContext(SmartphoneContext);
   const params = useParams();
@@ -13,6 +14,7 @@ const SmartphoneDetails = () => {
     return <div>Loading...</div>;
   }
   return (
+
     <>
       <NavBar />
       <div className="max-w-screen-2xl m-auto">
@@ -71,6 +73,7 @@ const SmartphoneDetails = () => {
         </div>
       </div>
     </>
+
   );
 };
 

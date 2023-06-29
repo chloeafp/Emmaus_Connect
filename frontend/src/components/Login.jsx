@@ -1,7 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Logo from "../assets/logo.png";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const handleLogin = () => {
+    console.log("Email:", email);
+    console.log("Mot de passe:", password);
+  };
+
+
   return (
     <div class="h-screen flex items-center justify-center font-sans ">
       {/* conteneur global */}
@@ -13,37 +22,37 @@ const Login = () => {
             <div className="flex justify-center my-">
               <img src={Logo} alt="le Logo" />
             </div>
-            <div className="my-7 font-bold font-poppins flex justify-center" >
+            <div className="my-7 font-bold font-poppins flex justify-center">
               Se connecter à votre compte
             </div>
-            <form >
-              
-                <div className="flex justify-center" >
-                  <input
-                    class="my-4 appearance-none border-2 border-gray-200 rounded w-4/5 py-2 px-4 text-gray-700 focus:outline-none focus:bg-white focus:border-[#00ACB0]"
-                    id="inline-full-email"
-                    type="text"
-                    value="email"
-                  />
-                </div>
-              
-              
-                <div className="flex justify-center" >
-                  <input
-                    class="my-4 appearance-none border-2 border-gray-200 rounded w-4/5 py-2 px-4 text-gray-700  focus:outline-none focus:bg-white focus:border-[#00ACB0]"
-                    id="inline-password"
-                    type="password"
-                    placeholder="Mot de passe"
-                  />
-                </div>
-            
+            <form>
+              <div className="flex justify-center">
+                <input
+                  class="my-4 appearance-none border-2 border-gray-200 rounded w-4/5 py-2 px-4 text-gray-700 focus:outline-none focus:bg-white focus:border-[#00ACB0]"
+                  id="inline-full-email"
+                  type="text"
+                  placeholder="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                />
+              </div>
+
+              <div className="flex justify-center">
+                <input
+                  class="my-4 appearance-none border-2 border-gray-200 rounded w-4/5 py-2 px-4 text-gray-700  focus:outline-none focus:bg-white focus:border-[#00ACB0]"
+                  id="inline-password"
+                  type="password"
+                  placeholder="Mot de passe"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
 
               <div>
-              
                 <div className="flex justify-center">
                   <button
                     class="my-4  shadow bg-[#00ACB0] w-4/5 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded  "
-                    type="button"
+                    type="button" onClick={handleLogin}
                   >
                     Se connecter
                   </button>
@@ -58,8 +67,12 @@ const Login = () => {
               Bienvenue sur votre espace
             </div>
             <div className="font-bold mb-[4vh]">EMMAÜS CONNECT</div>
-            <div className="font-bold mt-[4vh]">Vous n'avez pas de compte ?</div>
-            <div><p>Contactez le référent</p> <p>de votre lieu de vente.</p></div>
+            <div className="font-bold mt-[4vh]">
+              Vous n'avez pas de compte ?
+            </div>
+            <div>
+              <p>Contactez le référent</p> <p>de votre lieu de vente.</p>
+            </div>
           </div>
         </div>
       </div>

@@ -23,15 +23,16 @@ function App() {
     [smartphoneData,
     setSmartPhoneData,]);
 
-
-
+function App() {
   return (
+
     <div className="">
       <SmartphoneContext.Provider value={contextValue}>
       <NavBar />
       <Router />
       </SmartphoneContext.Provider>
     </div>
+
   );
 }
 

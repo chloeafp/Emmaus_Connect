@@ -29,7 +29,7 @@ const SmartphoneDetails = () => {
               Retour
             </button>
           </div>
-          <div className="flex justify-start gap-80 items-center">
+          <div className="flex justify-start gap-[10%] items-center">
             <table className="text-left px-6 border-separate border-spacing-6 pb-6">
               <tbody className=" border-spacing-9">
                 <tr className="h-12">
@@ -67,7 +67,7 @@ const SmartphoneDetails = () => {
                 </tr>
               </tbody>
             </table>
-            <img src={iphoneTest} alt="iphone" className="h-96" />
+            <img src={smartphoneData[params.id].image ? smartphoneData[params.id].image:iphoneTest} alt="iphone" className="h-96" />
           </div>
         </div>
       </div>

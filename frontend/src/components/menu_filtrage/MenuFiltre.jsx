@@ -3,7 +3,7 @@ import SearchBar from './SearchBar';
 import Checkbox from './Checkbox';
 
 const Menu_filtre = ({search, setSearch, filterArr, setFilterArr}) => {
-
+console.log("filter",filterArr);
     useEffect(() =>
     {
 setFilterArr([
@@ -15,7 +15,6 @@ setFilterArr([
 },[])
 
 
-    console.log(filterArr);
     const category = [
         {name: "1 - HC", filterFunc: (phone) => phone.categorie_prix === 1},
         {name: "2 - C", filterFunc: (phone) => phone.categorie_prix === 2},
@@ -40,6 +39,7 @@ setFilterArr([
             {category.map((el)  => {
                 return (
                     <Checkbox name={el.name}
+                    key={el.name}
                     filterArr={filterArr}
                     setFilterArr={setFilterArr}
                     filterFunc={el.filterFunc}
@@ -53,6 +53,7 @@ setFilterArr([
             {etat.map((el)  => {
                 return (
                     <Checkbox name={el.name}
+                    key={el.name}
                     filterArr={filterArr}
                     setFilterArr={setFilterArr}
                     filterFunc={el.filterFunc}/>

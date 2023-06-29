@@ -1,16 +1,35 @@
-import React, { useState } from "react";
-import Logo from "../assets/logo.png";
+import React, { useContext, useState } from "react";
+import Logo from "../assets/logo-200.png";
 import {useNavigate} from "react-router-dom";
+import axios from "axios";
+import UserContext from "./contexts/UserContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [loginError, setLoginError] = useState(false);
+  const {setUser} = useContext(UserContext)
+ 
   const navigate=useNavigate();
 
   const handleLogin = () => {
-    console.log("Email:", email);
-    console.log("Mot de passe:", password);
-    navigate("/smartphone");
+    const data = {
+      email:email,
+      password: password
+    }
+
+    axios
+    .post(`${import.meta.env.VITE_BACKEND_URL}/api/login`, data)
+    .then((response) => {
+if (response.data === "denied") {setLoginError(true)}
+else {
+  setUser(response.data[0])
+  navigate("/smartphone")}
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+
   };
 
 
@@ -30,7 +49,7 @@ const Login = () => {
           <div className="">
          
 
-            <div className="my-7 font-bold font-poppins flex justify-center text-xl">
+            <div className="my-7 font-bold font-poppins text-center flex justify-center text-xl">
               Se connecter à votre compte
             </div>
 
@@ -65,14 +84,16 @@ const Login = () => {
                   >
                     Se connecter
                   </button>
+                 
                 </div>
+              {loginError && <p class="text-center text-red-500">Utilisateur ou mot de passe inconnu</p>}
               </div>
             </form>
            </div> 
           </div>
 
           {/* conteneur de la partie droite */}
-          <div className="bg-[#00ACB0] text-white flex flex-col justify-center items-center w-[45%] text-xl">
+          <div className="bg-[#00ACB0] text-center text-white flex flex-col justify-center items-center w-[45%] text-xl">
             <div>
               Bienvenue sur votre espace
             </div>

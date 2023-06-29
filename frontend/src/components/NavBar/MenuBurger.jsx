@@ -36,7 +36,7 @@ function BurgerMenu() {
                 <NavLink to="/smartphone">Base de données</NavLink>
               </li>
               <li className="p-2 hover:text-[#E52460] font-medium">
-                <NavLink to="">FAQ</NavLink>
+                <NavLink to="/faq">FAQ</NavLink>
               </li>
             </ul>
           </div>

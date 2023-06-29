@@ -11,11 +11,11 @@ const ListeSmartphone = () => {
   return (
     <>
      <NavBar />
-    <div className="flex justify-between max-w-screen-2xl m-auto">
-      <Menu_filtre className="w-1/3" />
-      <div className="pt-10 flex flex-col gap-10  w-2/3 mx-3">
+    <div className="flex justify-between max-w-screen-2xl m-auto gap-10">
+      <Menu_filtre />
+      <div className="pt-10 flex flex-col gap-12 w-3/4 mx-3">
         <div className="flex justify-between items-center">
-          <p className="text-black font-bold">Base de données</p>
+          <p className="text-black text-xl">Base de données</p>
           <div className="flex justify-around gap-10">
             <button className="bg-[#e52460] hover:bg-[#bb1e50] text-white font-bold py-2 px-4 rounded-3xl">
               Exporter un fichier
@@ -25,8 +25,8 @@ const ListeSmartphone = () => {
             </button>
           </div>
         </div>
-        <table className="table-auto">
-          <thead className="text-left bg-[#f9c838]">
+        <table className="table-auto ">
+          <thead className="text-left bg-[#f9c838] h-10">
             <tr>
               <th>Marque</th>
               <th>Modèle</th>
@@ -39,7 +39,7 @@ const ListeSmartphone = () => {
             {smartphoneData &&
               smartphoneData.map((phone) => {
                 return (
-                  <tr className="even:bg-gray-50 odd:bg-white font-light hover:bg-[#F9F9F9] transition h-10 hover:font-medium">
+                  <tr className="even:bg-gray-50 odd:bg-white font-light hover:bg-[#F9F9F9] transition p-6 h-10 hover:font-medium">
                     <td>{phone.marque}</td>
                     <td>{phone.modele}</td>
                     <td>{phone.categorie_prix}</td>

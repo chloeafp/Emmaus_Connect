@@ -29,7 +29,7 @@ if (name === "5 - Premium" || name === "2 - C" ||name === "3 - B"||name === "4 -
            checked={check}
             onChange={(e) => filterHandler(e)}
             />
-            <label htmlFor="">{name}</label>
+            <label htmlFor="" className='text-lg font-light'>{name}</label>
             
         </div>
     );

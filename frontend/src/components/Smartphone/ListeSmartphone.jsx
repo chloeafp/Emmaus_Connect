@@ -3,7 +3,7 @@ import { AiOutlineInfoCircle } from "react-icons/ai";
 import { ImBin } from "react-icons/Im";
 import Menu_filtre from "../menu_filtrage/MenuFiltre";
 import SmartphoneContext from "../contexts/SmartphoneContext";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
 import axios from "axios";
 
@@ -12,6 +12,7 @@ const ListeSmartphone = () => {
   const { setSmartPhoneData } = useContext(SmartphoneContext);
   const [search, setSearch] = useState("");
   const [filterArr, setFilterArr] = useState([]);
+  const navigate = useNavigate();
 
   const handleDelete = (id) => {
     console.log(id);

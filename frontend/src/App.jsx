@@ -8,7 +8,6 @@ function App() {
   const [smartphoneData, setSmartPhoneData] = useState(undefined)
   const [user, setUser] = useState(undefined)
 
-  console.log("user",user);
   useEffect(() => {
 
     axios

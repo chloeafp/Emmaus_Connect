@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import SmartphoneContext from "../contexts/SmartphoneContext";
+import NavBar from "../NavBar/NavBar";
 
 const SmartphoneDetails = () => {
   const { smartphoneData } = useContext(SmartphoneContext);
@@ -12,6 +13,7 @@ const SmartphoneDetails = () => {
   }
   return (
     <div>
+      <NavBar />
       <h2>Information du téléphone</h2>
       <button type="button" onClick={() => navigate("/smartphone")}>Retour</button>
       <table className="text-left ">

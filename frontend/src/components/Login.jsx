@@ -12,14 +12,14 @@ const Login = () => {
 
 
   return (
-    <div class="h-screen flex items-center justify-center font-sans ">
+    <div class="h-screen flex items-center justify-center">
       {/* conteneur global */}
       <div>
         {/* conteneur de l'élément central */}
         <div className=" flex h-96 ">
           {/* partie gauche */}
-          <div className="flex-row w-96 ">
-            <div className="flex justify-center my-">
+          <div className="flex-row w-96">
+            <div className="flex justify-center">
               <img src={Logo} alt="le Logo" />
             </div>
             <div className="my-7 font-bold font-poppins flex justify-center">
@@ -62,7 +62,7 @@ const Login = () => {
           </div>
 
           {/* conteneur de la partie droite */}
-          <div className="bg-[#00ACB0] text-white  flex flex-col justify-center items-center w-64 ">
+          <div className="bg-[#00ACB0] text-white flex flex-col justify-center items-center w-64 ">
             <div right login text>
               Bienvenue sur votre espace
             </div>

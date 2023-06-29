@@ -10,7 +10,7 @@ const ListeSmartphone = () => {
   const { smartphoneData } = useContext(SmartphoneContext);
   const [search, setSearch] = useState("");
   const [filterArr, setFilterArr] = useState([]);
-
+  console.log("samrtphone",smartphoneData);
   return (
 
    <>
@@ -67,7 +67,7 @@ const ListeSmartphone = () => {
               )
               .map((phone) => {
                 return (
-                  <tr className="even:bg-gray-50 odd:bg-white font-light " key={phone.modele}>
+                  <tr className="even:bg-gray-50 odd:bg-white font-light " key={phone.id}>
                     <td>{phone.marque}</td>
                     <td>{phone.modele}</td>
                     <td>{phone.categorie_prix}</td>

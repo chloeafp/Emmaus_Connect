@@ -70,7 +70,7 @@ const Login = () => {
 
           {/* conteneur de la partie droite */}
           <div className="bg-[#00ACB0] text-white flex flex-col justify-center items-center w-[45%] text-xl">
-            <div right login text>
+            <div>
               Bienvenue sur votre espace
             </div>
             <div className="font-bold mb-[4vh]">EMMAÜS CONNECT</div>

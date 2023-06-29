@@ -15,7 +15,6 @@ function App() {
       .catch((error) => console.error(error.message));
   }, []);
 
-  console.log(smartphoneData);
 
   const contextValue = useMemo(() => ({
     smartphoneData,

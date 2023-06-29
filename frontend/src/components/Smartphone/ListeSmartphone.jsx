@@ -13,7 +13,7 @@ const ListeSmartphone = () => {
   const { setSmartPhoneData } = useContext(SmartphoneContext);
   const [search, setSearch] = useState("");
   const [filterArr, setFilterArr] = useState([]);
-console.log(smartphoneData);
+
   const handleDelete = (id) => {
     console.log(id);
     axios
@@ -21,6 +21,7 @@ console.log(smartphoneData);
       .then(() => setSmartPhoneData(smartphoneData.filter((el)=> el.id !== id)))
       .catch((error) => console.error(error.message));
   }
+
 
 
   return (
@@ -34,16 +35,13 @@ console.log(smartphoneData);
       filterArr={filterArr}
       setFilterArr={setFilterArr}
       className="w-1/3" />
-      <div className="pt-10 flex flex-col gap-12 w-3/4 mx-3">
+      <div className="flex flex-col gap-12 w-3/4 mx-3">
 
         <div className="flex justify-between items-center">
-          <p className="text-black text-xl">Base de données</p>
+          <h2 className="mb-4 text-4xl font-extrabold text-center">Base de données</h2>
           <div className="flex justify-around gap-10">
-            <button className="bg-[#e52460] hover:bg-[#bb1e50] text-white font-bold py-2 px-4 rounded-3xl">
-              Exporter un fichier
-            </button>
-            <button className="bg-[#00b3b6] hover:bg-[#068284] text-white font-bold py-2 px-4 rounded-3xl">
-              Importer un fichier
+            <button onClick={() => navigate("/import_file")} className="bg-[#00b3b6] hover:bg-[#068284] text-white font-bold py-2 px-4 rounded-3xl">
+             Importer un fichier
             </button>
           </div>
         </div>

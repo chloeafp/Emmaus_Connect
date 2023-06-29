@@ -1,11 +1,12 @@
-import React, {useRef} from "react";
+import React, { useRef, useState } from "react";
 import { NavLink } from "react-router-dom";
 import NavBar from "./NavBar/NavBar";
 import axios from "axios";
 
 const ImportFile = () => {
+  const [file, setFile] = useState([]);
 
-    const inputRef = useRef(null)
+  const inputRef = useRef(null);
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
@@ -13,8 +14,13 @@ const ImportFile = () => {
 
     formData.append("csv", inputRef.current.files[0]);
 
-    axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/import`, formData);
+    axios
+      .post(`${import.meta.env.VITE_BACKEND_URL}/api/import`, formData)
+      .then((res) => setFile(res.data))
+      .catch((err) => console.error(err));
   };
+
+  console.log(file);
 
   return (
     <div>
@@ -70,14 +76,50 @@ const ImportFile = () => {
                 />
               </label>
             </div>
-            <button
-              type="submit"
-              className="bg-[#e52460] hover:bg-[#bb1e50] text-white py-2 px-6 text-lg rounded-3xl"
-            >
-              Importer
-            </button>
+            {file.length === 0 ? (
+              <button
+                type="submit"
+                className="bg-[#e52460] hover:bg-[#bb1e50] text-white py-2 px-6 text-lg rounded-3xl"
+              >
+                Importer
+              </button>
+            ) : (
+              <div className="text-center text-2xl font-bold text-[#e52460]">
+                Fichier importé !
+              </div>
+            )}
           </form>
         </div>
+
+        {file.length > 0 && (
+          <>
+            <p className="text-center text-medium text-gray-600 mt-3">
+              Vous avez importé {file.length} nouveaux téléphones
+            </p>
+
+            <table className="w-full mt-5">
+              <thead className="text-center text-gray-900 bg-[#f4f3f3] h-10">
+                <tr>
+                  <th>Marque</th>
+                  <th>Modèle</th>
+                  <th>Catégorie</th>
+                </tr>
+              </thead>
+              <tbody>
+                {file.map((cell) => {
+                    return (
+                        <tr className="even:bg-gray-50 text-center odd:bg-white font-light " key={cell.id}>
+                        <td>{cell.marque}</td>
+                        <td>{cell.modele}</td>
+                        <td>{cell.categorie_prix}</td>
+                        </tr>
+                    );
+                    })}
+
+              </tbody>
+            </table>
+          </>
+        )}
       </section>
     </div>
   );

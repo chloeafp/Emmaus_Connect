@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { AiFillEye } from "react-icons/ai";
+import { AiOutlineInfoCircle } from "react-icons/ai";
 import Menu_filtre from "../menu_filtrage/MenuFiltre";
 import SmartphoneContext from "../contexts/SmartphoneContext";
 import { Link } from "react-router-dom";
@@ -36,7 +36,7 @@ const ListeSmartphone = () => {
             {smartphoneData &&
               smartphoneData.map((phone) => {
                 return (
-                  <tr className="even:bg-gray-50 odd:bg-white font-light">
+                  <tr className="even:bg-gray-50 odd:bg-white font-light hover:bg-slate-100 transition h-10 hover:font-medium">
                     <td>{phone.marque}</td>
                     <td>{phone.modele}</td>
                     <td>{phone.categorie_prix}</td>
@@ -52,7 +52,7 @@ const ListeSmartphone = () => {
 
                     <td>
                       <Link to={`/smartphone_details/${phone.id - 1}`}>
-                        <AiFillEye />
+                        <AiOutlineInfoCircle className="text-2xl hover:text-[#e52460] transition hover:scale-110"/>
                       </Link>
                     </td>
                   </tr>

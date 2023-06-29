@@ -31,12 +31,6 @@ function App() {
     <div className="">
       <SmartphoneContext.Provider value={contextValue}>
       <NavBar />
-
-
-       
-     
-   
-
       <Router />
       </SmartphoneContext.Provider>
     </div>

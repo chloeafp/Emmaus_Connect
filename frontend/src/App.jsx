@@ -26,7 +26,7 @@ function App() {
 
   return (
 
-    <div className="">
+    <div>
       <SmartphoneContext.Provider value={contextValue}>
       <Router />
       </SmartphoneContext.Provider>
@@ -35,5 +35,6 @@ function App() {
   );
 
 }
+
 
 export default App;

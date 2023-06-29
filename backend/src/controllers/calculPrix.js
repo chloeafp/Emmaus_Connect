@@ -23,13 +23,14 @@ const calculPrix = (ecran, reseau, etat, stockage, ram, chargeur_cable) => {
     else { note += 0 }
     if (chargeur_cable) { note += 10 }
     if (etat !== "reconditionne") { note = 0 }
-    if (note >= 48) { return "premium" }
-    else if (note >= 36) { return "A" }
-    else if (note >= 24) { return "B" }
-    else if (note >= 12) { return "C" }
-    else { return "HC" }
+    if (note >= 48) { return 5 }
+    else if (note >= 36) { return 4 }
+    else if (note >= 24) { return 3 }
+    else if (note >= 12) { return 2 }
+    else { return 1 }
 
 
 
 
 }
+module.exports = { calculPrix }

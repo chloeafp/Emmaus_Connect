@@ -67,7 +67,8 @@ const SmartphoneDetails = () => {
                 </tr>
               </tbody>
             </table>
-            <img src={smartphoneData[params.id].image ? smartphoneData[params.id].image:iphoneTest} alt="iphone" className="h-96" />
+
+            <img src={smartphoneData[params.id].url ? smartphoneData[params.id].url : iphoneTest} alt="iphone" className="h-96" />
           </div>
         </div>
       </div>

@@ -1,11 +1,19 @@
 import React, { useContext } from "react";
 
-
+import axios from 'axios'
 import iphoneTest from "../../assets/iphone-test.png";
+import { useNavigate } from "react-router-dom";
 
 
-const RecapPhone = ({ data, setPage }) => {
+const RecapPhone = ({ data, setPage, categ, setCateg }) => {
+    const navigate = useNavigate()
+    const handlevalid = () => {
 
+        axios.post(`${import.meta.env.VITE_BACKEND_URL}/api/smartphone`, data)
+            .then((res) => { setCateg(res.data.categorie_prix); console.warn(res) })
+            .catch((err) => console.warn(err))
+
+    }
 
     console.warn(data)
     if (!data) {
@@ -44,15 +52,15 @@ const RecapPhone = ({ data, setPage }) => {
                                 </tr>
                                 <tr>
                                     <th>RAM :</th>
-                                    <td>{data.ram} Go</td>
+                                    <td>{data.ram == 0 ? "moins de 2 " : data.ram} Go</td>
                                 </tr>
                                 <tr>
                                     <th>Stockage :</th>
-                                    <td>{data.stockage} Go</td>
+                                    <td>{data.stockage == 0 ? "moins de 16 " : data.stockage} Go</td>
                                 </tr>
                                 <tr>
                                     <th>Taille d'écran :</th>
-                                    <td>{data.ecran} P</td>
+                                    <td>{data.ecran == 0 ? "moins de 4" : data.ecran} P</td>
                                 </tr>
                                 <tr>
                                     <th>Réseau :</th>
@@ -68,18 +76,47 @@ const RecapPhone = ({ data, setPage }) => {
 
                         {!data.url ? <img src={iphoneTest} alt="iphone" className="h-96" /> : <img src={data.url} alt="iphone" className="h-96" />}
                     </div>
-                    <div className="flex justify-end items-center py-12 px-10">
+                    {categ ?
+                        <div className="flex justify-between items-center py-12 px-10">
+                            <div>
+                                <div className="text-center text-2xl font-bold text-[#e52460] mt-6">
+                                    Téléphone importé !
+                                </div>
+                                <p className="text-center text-medium text-gray-600 mt-3">
+                                    Ce téléphone a obtenu {categ}
+                                </p>
+                            </div>
+                            <button
 
-                        <button
-                            type="button"
-                            onClick={() => setPage("General")}
-                            className="bg-[#e52460] hover:bg-[#bb1e50] text-white py-2 px-6 text-lg font-bold rounded-3xl"
-                        >
-                            Valider
-                        </button>
-                    </div>
+                                className="bg-[#e52460] hover:bg-[#bb1e50] text-white py-2 px-6 text-lg font-bold rounded-3xl"
+                                type="button"
+                                onClick={() => navigate("/smartphone")}
+                            >
+
+                                Retour a l'accueil
+                            </button>
+                        </div> :
+                        <div className="flex justify-end items-center py-12 px-10">
+
+                            <button
+
+                                type="button"
+                                onClick={handlevalid}
+                                className="bg-[#e52460] hover:bg-[#bb1e50] text-white py-2 px-6 text-lg font-bold rounded-3xl"
+                            >
+                                Valider
+                            </button>
+                        </div>}
+
+
                 </div>
             </div>
+
+
+
+
+
+
         </>
 
     );

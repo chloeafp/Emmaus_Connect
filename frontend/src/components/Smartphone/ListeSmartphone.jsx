@@ -2,19 +2,22 @@ import React, { useContext } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import Menu_filtre from "../menu_filtrage/MenuFiltre";
 import SmartphoneContext from "../contexts/SmartphoneContext";
+import NavBar from "../navbar/NavBar";
 import { Link } from "react-router-dom";
 
 const ListeSmartphone = () => {
   const { smartphoneData } = useContext(SmartphoneContext);
 
   return (
-    <div className="flex justify-between">
+    <>
+     <NavBar />
+    <div className="flex justify-between max-w-screen-2xl m-auto">
       <Menu_filtre className="w-1/3" />
       <div className="pt-10 flex flex-col gap-10  w-2/3 mx-3">
         <div className="flex justify-between items-center">
           <p className="text-black font-bold">Base de données</p>
           <div className="flex justify-around gap-10">
-            <button className="bg-[#e52460] hover:bg-[#e698b1] text-white font-bold py-2 px-4 rounded-3xl">
+            <button className="bg-[#e52460] hover:bg-[#bb1e50] text-white font-bold py-2 px-4 rounded-3xl">
               Exporter un fichier
             </button>
             <button className="bg-[#00b3b6] hover:bg-[#068284] text-white font-bold py-2 px-4 rounded-3xl">
@@ -36,7 +39,7 @@ const ListeSmartphone = () => {
             {smartphoneData &&
               smartphoneData.map((phone) => {
                 return (
-                  <tr className="even:bg-gray-50 odd:bg-white font-light hover:bg-slate-100 transition h-10 hover:font-medium">
+                  <tr className="even:bg-gray-50 odd:bg-white font-light hover:bg-[#F9F9F9] transition h-10 hover:font-medium">
                     <td>{phone.marque}</td>
                     <td>{phone.modele}</td>
                     <td>{phone.categorie_prix}</td>
@@ -62,6 +65,7 @@ const ListeSmartphone = () => {
         </table>
       </div>
     </div>
+    </>
   );
 };
 

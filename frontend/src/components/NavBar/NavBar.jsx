@@ -19,7 +19,7 @@ const NavBar = () => {
           <NavLink to="/smartphone">Base de données</NavLink>
         </li>
         <li className="text-lg font-light hidden lg:block tracking-wide hover:text-[#E52460] transition focus:font-bold">
-          <NavLink to="">FAQ</NavLink>
+          <NavLink to="/faq">FAQ</NavLink>
         </li>
       </ul>
       <div className="flex items-center gap-2 ">

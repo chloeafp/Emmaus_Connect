@@ -1,7 +1,8 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useContext } from "react";
 import { NavLink } from "react-router-dom";
 import NavBar from "./NavBar/NavBar";
 import axios from "axios";
+import SmartphoneContext from "./contexts/SmartphoneContext";
 
 const ImportFile = () => {
   const [file, setFile] = useState([]);
@@ -16,7 +17,10 @@ const ImportFile = () => {
 
     axios
       .post(`${import.meta.env.VITE_BACKEND_URL}/api/import`, formData)
-      .then((res) => setFile(res.data))
+      .then((res) => {
+      setFile(res.data)
+    }
+      )
       .catch((err) => console.error(err));
   };
 

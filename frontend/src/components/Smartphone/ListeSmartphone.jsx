@@ -1,4 +1,7 @@
-import React, { useContext, useState } from "react";
+
+
+import React, { useContext, useState, useEffect  } from "react";
+
 import { AiOutlineInfoCircle } from "react-icons/ai";
 import { ImBin } from "react-icons/Im";
 import Menu_filtre from "../menu_filtrage/MenuFiltre";
@@ -8,6 +11,7 @@ import NavBar from "../NavBar/NavBar";
 import axios from "axios";
 
 const ListeSmartphone = () => {
+  const navigate = useNavigate()
   const { smartphoneData } = useContext(SmartphoneContext);
   const { setSmartPhoneData } = useContext(SmartphoneContext);
   const [search, setSearch] = useState("");
@@ -21,6 +25,13 @@ const ListeSmartphone = () => {
       .then(() => setSmartPhoneData(smartphoneData.filter((el)=> el.id !== id)))
       .catch((error) => console.error(error.message));
   }
+
+  useEffect(() => {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/smartphone`)
+      .then((response) => setSmartPhoneData(response.data))
+      .catch((error) => console.error(error.message));
+  }, []);
 
 
 

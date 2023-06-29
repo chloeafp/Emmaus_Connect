@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { AiFillEye } from "react-icons/ai";
 import Menu_filtre from "../menu_filtrage/MenuFiltre";
 import SmartphoneContext from "../contexts/SmartphoneContext";
@@ -6,10 +6,19 @@ import { Link } from "react-router-dom";
 
 const ListeSmartphone = () => {
   const { smartphoneData } = useContext(SmartphoneContext);
+  const [search, setSearch] = useState("");
+  const [filterArr, setFilterArr] = useState([]);
+
+  console.log(smartphoneData);
 
   return (
     <div className="flex justify-between">
-      <Menu_filtre className="w-1/3" />
+      <Menu_filtre 
+      search={search}
+      setSearch={setSearch}
+      filterArr={filterArr}
+      setFilterArr={setFilterArr}
+      className="w-1/3" />
       <div className="pt-10 flex flex-col gap-10  w-2/3 mx-3">
         <div className="flex justify-between items-center">
           <p className="text-black font-bold">Base de données</p>
@@ -34,7 +43,25 @@ const ListeSmartphone = () => {
           </thead>
           <tbody>
             {smartphoneData &&
-              smartphoneData.map((phone) => {
+              smartphoneData
+              .filter((phone) => {
+                if (filterArr.length) {
+                  for (let i = 0; i < filterArr.length; i += 1) {
+                    if (filterArr[i].filterFunc(phone)) {
+                      return true;
+                    }
+                  }
+                  return false;
+                }
+                return true;
+              })
+              .filter((phone)=>
+              search
+                  ? phone.marque.toLowerCase().includes(search.toLowerCase()) ||
+                    phone.modele.toLowerCase().includes(search.toLowerCase())
+                  : true
+              )
+              .map((phone) => {
                 return (
                   <tr className="even:bg-gray-50 odd:bg-white font-light">
                     <td>{phone.marque}</td>

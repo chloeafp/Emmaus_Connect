@@ -3,15 +3,16 @@ import { AiFillEye } from "react-icons/ai";
 import Menu_filtre from "../menu_filtrage/MenuFiltre";
 import SmartphoneContext from "../contexts/SmartphoneContext";
 import { Link } from "react-router-dom";
+import NavBar from "../NavBar/NavBar";
 
 const ListeSmartphone = () => {
   const { smartphoneData } = useContext(SmartphoneContext);
   const [search, setSearch] = useState("");
   const [filterArr, setFilterArr] = useState([]);
 
-  console.log(smartphoneData);
-
   return (
+
+       <div><NavBar />
     <div className="flex justify-between">
       <Menu_filtre 
       search={search}
@@ -75,21 +76,24 @@ const ListeSmartphone = () => {
                         .split("-")
                         .reverse()
                         .join("/")}
-                    </td>
-                    
-                      <td>
-                      <Link to={`/smartphone_details/${phone.id-1}`}>
-                        <AiFillEye />
-                        </Link>
-                      </td>
-                    
-                  </tr>
-                );
-              })}
-          </tbody>
-        </table>
+                    </td>        
+
+    
+                      
+                        <td>
+                        <Link to={`/smartphone_details/${phone.id-1}`}>
+                          <AiFillEye />
+                          </Link>
+                        </td>
+                      
+                    </tr>
+                  );
+                })}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </div>
+      </div>
   );
 };
 

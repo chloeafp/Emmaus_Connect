@@ -15,8 +15,8 @@ const Router = () => {
             <Route path="/ajout" element={<NouveauTel />} />
 
             <Route  path="/" element={<Login/>}/>
-             <Route path="/smartphone" element={<ListeSmartphone />} />
-             <Route path="/smartphone_details/:id" element={<SmartphoneDetails />} />
+            <Route path="/smartphone" element={<ListeSmartphone />} />
+            <Route path="/smartphone_details/:id" element={<SmartphoneDetails />} />
 
 
         </Routes>

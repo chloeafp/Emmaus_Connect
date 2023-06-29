@@ -32,7 +32,7 @@ const General = ({ data, setData, setPage }) => {
 
         inputRef.current.files[0] && axios.post("http://localhost:5002/api/avatar", formData).then((response) => {
             const url = "http://localhost:5002" + response.data.split("").slice(1).join("")
-            setData({ ...data, url: url });
+            setData({ ...data, image: url });
         })
         setPage("Technique")
     }

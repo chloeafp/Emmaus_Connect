@@ -20,8 +20,8 @@ const BlockFAQ = ({ question, reponse }) => {
           <svg
             className={`${
               isClicked
-                ? "w-6 h-6 text-[#E52460] rotate-180"
-                : "w-6 h-6 text-[#E52460] "
+                ? "w-6 h-6 text-[#E52460] duration-300 rotate-180"
+                : "w-6 h-6 text-[#E52460] duration-300 "
             }`}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"

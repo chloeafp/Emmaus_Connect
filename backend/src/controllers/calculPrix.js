@@ -34,3 +34,4 @@ const calculPrix = (ecran, reseau, etat, stockage, ram, chargeur_cable) => {
 
 }
 module.exports = { calculPrix }
+

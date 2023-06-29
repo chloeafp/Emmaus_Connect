@@ -3,7 +3,7 @@ import SearchBar from './SearchBar';
 import Checkbox from './Checkbox';
 
 const Menu_filtre = ({search, setSearch, filterArr, setFilterArr}) => {
-console.log("filter",filterArr);
+
     useEffect(() =>
     {
 setFilterArr([
@@ -30,12 +30,12 @@ setFilterArr([
         {name: "Reconditionné",filterFunc: (phone) => phone.etat === "reconditionne"}
     ]
     return (
-        <div className='w-1/3 pt-10 px-3'>
+        <div className='w-1/3 px-6 pb-6 bg-[#F9F9F9]'>
             <SearchBar
               search={search}
               setSearch={setSearch}
             />
-            <h2 className='pb-6 font-bold text-center'>Catégorie</h2>
+            <h2 className='pb-6 text-xl font-medium text-center'>Catégorie</h2>
             {category.map((el)  => {
                 return (
                     <Checkbox name={el.name}
@@ -49,7 +49,7 @@ setFilterArr([
             })}
             
 
-            <h2 className='py-6 font-bold text-center'>Etat</h2>
+            <h2 className='py-6 text-xl font-medium text-center'>Etat</h2>
             {etat.map((el)  => {
                 return (
                     <Checkbox name={el.name}

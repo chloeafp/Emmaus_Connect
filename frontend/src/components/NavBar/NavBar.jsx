@@ -9,7 +9,7 @@ const NavBar = () => {
   const { user, setUser } = useContext(UserContext);
 
   return (
-    <nav className="bg-[#F9F9F9] px-6 shadow-[0px_1px_5px_2px_#00000024] w-full">
+    <nav className="bg-[#F9F9F9] px-6 shadow-[0px_1px_5px_2px_#00000024] w-full mb-20">
       <div className="flex justify-between items-center h-28 max-w-screen-2xl m-auto">
         <Link to="/">
           <img className="w-48" src={logo} alt="Logo Emmaus Connect" />

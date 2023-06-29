@@ -2,6 +2,8 @@ require("dotenv").config();
 const mysql = require("mysql2/promise");
 const fs = require("fs");
 
+const calculPrix = require("./calculPrix");
+
 const database = mysql.createPool({
   host: process.env.DB_HOST, // address of the server
   port: process.env.DB_PORT, // port of the DB server (mysql), not to be confused with the APP_PORT !
@@ -73,7 +75,15 @@ const exportCsv = async (req, res) => {
           } else {
             tmp.verrouillage = parseInt(tmp.verrouillage);
           }
-
+          tmp.categorie_prix = calculPrix.calculPrix(
+            tmp.ecran,
+            tmp.reseau,
+            tmp.etat,
+            tmp.stockage,
+            tmp.ram,
+            tmp.chargeur_cable
+          );
+          console.log(tmp.categorie_prix);
           await database.query(
             `
           INSERT INTO

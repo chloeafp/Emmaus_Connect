@@ -13,8 +13,8 @@ const navigate = useNavigate();
       <NavBar />
       {isClicked ? (
          <div className="h-[60vh] flex items-center justify-center">
-         <div className="bg-[#E52460] flex flex-col items-center justify-center py-16 px-8 max-w-md text-white rounded-[31px]">
-           <p className="pt-8 pb-8 text-2xl font-medium">
+         <div className="bg-[#E52460] flex flex-col items-center justify-center px-8 max-w-md text-white rounded-[31px]">
+           <p className="py-8 text-2xl font-medium">
              Merci pour votre message !
            </p>
            <p className="pb-16 text-center text-lg ">
@@ -24,7 +24,7 @@ const navigate = useNavigate();
              <button
                type="button"
                onClick={() => navigate("/faq")}
-               className="border hover:bg-white hover:text-[#E52460] tracking-wide rounded-xl py-2 px-3 text-sm md:px-6  md:text-lg transition"
+               className="border hover:bg-white hover:text-[#E52460] tracking-wide rounded-xl py-2 px-3 text-sm mb-8 md:px-6  md:text-lg transition"
              >
                Retour
              </button>
@@ -33,7 +33,7 @@ const navigate = useNavigate();
        </div>
      ) : (
       <section>
-        <div className="py-8 lg:py-16 px-4 mx-auto max-w-screen-md">
+        <div className="px-4 mx-auto max-w-screen-md">
           <h2 className="mb-4 text-4xl font-extrabold text-center">
             Support technique
           </h2>

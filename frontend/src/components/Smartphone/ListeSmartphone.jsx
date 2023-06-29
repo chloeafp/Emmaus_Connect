@@ -1,16 +1,29 @@
 
 import React, { useContext, useState  } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import { ImBin } from "react-icons/Im";
 import Menu_filtre from "../menu_filtrage/MenuFiltre";
 import SmartphoneContext from "../contexts/SmartphoneContext";
 import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
+import axios from "axios";
 
 const ListeSmartphone = () => {
   const { smartphoneData } = useContext(SmartphoneContext);
+  const { setSmartPhoneData } = useContext(SmartphoneContext);
   const [search, setSearch] = useState("");
   const [filterArr, setFilterArr] = useState([]);
-  console.log("samrtphone",smartphoneData);
+
+  const handleDelete = (id) => {
+    console.log(id);
+    axios
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/api/smartphone/${id}`)
+      .then(() => setSmartPhoneData(smartphoneData.filter((el)=> el.id !== id)))
+      .catch((error) => console.error(error.message));
+  }
+
+
+
   return (
 
    <>
@@ -22,16 +35,13 @@ const ListeSmartphone = () => {
       filterArr={filterArr}
       setFilterArr={setFilterArr}
       className="w-1/3" />
-      <div className="pt-10 flex flex-col gap-12 w-3/4 mx-3">
+      <div className="flex flex-col gap-12 w-3/4 mx-3">
 
         <div className="flex justify-between items-center">
-          <p className="text-black text-xl">Base de données</p>
+          <h2 className="mb-4 text-4xl font-extrabold text-center">Base de données</h2>
           <div className="flex justify-around gap-10">
-            <button className="bg-[#e52460] hover:bg-[#bb1e50] text-white font-bold py-2 px-4 rounded-3xl">
-              Exporter un fichier
-            </button>
-            <button className="bg-[#00b3b6] hover:bg-[#068284] text-white font-bold py-2 px-4 rounded-3xl">
-              Importer un fichier
+            <button onClick={() => navigate("/import_file")} className="bg-[#00b3b6] hover:bg-[#068284] text-white font-bold py-2 px-4 rounded-3xl">
+             Importer un fichier
             </button>
           </div>
         </div>
@@ -42,6 +52,7 @@ const ListeSmartphone = () => {
               <th>Modèle</th>
               <th>Catégorie</th>
               <th>Date d'ajout</th>
+              <th></th>
               <th></th>
             </tr>
           </thead>
@@ -82,9 +93,13 @@ const ListeSmartphone = () => {
                     </td>
 
                     <td>
-                      <Link to={`/smartphone_details/${phone.id - 1}`}>
+                      <Link to={`/smartphone_details/${phone.id}`}>
                         <AiOutlineInfoCircle className="text-2xl hover:text-[#e52460] transition hover:scale-110"/>
                       </Link>
+                    </td>
+                    <td>                      
+                        <ImBin className="text-2xl hover:text-[#e52460] transition scale-75 hover:scale-100 cursor-pointer"
+                        onClick={()=> handleDelete(phone.id)}/>                     
                     </td>
                   </tr>
                 );

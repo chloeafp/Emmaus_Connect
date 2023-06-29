@@ -1,18 +1,21 @@
 import React, { useState } from "react";
 import Logo from "../assets/logo.png";
+import {useNavigate} from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const navigate=useNavigate();
 
   const handleLogin = () => {
     console.log("Email:", email);
     console.log("Mot de passe:", password);
+    navigate("/smartphone");
   };
 
 
   return (
-    <div class="h-screen flex items-center justify-center">
+    <div className="h-screen flex items-center justify-center">
       {/* conteneur global */}
 
       <div className="bg-[#F9F9F9] p-2 w-3/4 h-2/3 flex justify-center">
@@ -34,7 +37,7 @@ const Login = () => {
             <form>
               <div className="flex justify-center">
                 <input
-                  class="my-4 appearance-none border-2 border-gray-200 rounded w-4/5 py-2 px-4 text-gray-700 focus:outline-none focus:bg-white focus:border-[#00ACB0]"
+                  className="my-4 appearance-none border-2 border-gray-200 rounded w-4/5 py-2 px-4 text-gray-700 focus:outline-none focus:bg-white focus:border-[#00ACB0]"
                   id="inline-full-email"
                   type="text"
                   placeholder="email"
@@ -45,7 +48,7 @@ const Login = () => {
 
               <div className="flex justify-center">
                 <input
-                  class="my-4 appearance-none border-2 border-gray-200 rounded w-4/5 py-2 px-4 text-gray-700  focus:outline-none focus:bg-white focus:border-[#00ACB0]"
+                  className="my-4 appearance-none border-2 border-gray-200 rounded w-4/5 py-2 px-4 text-gray-700  focus:outline-none focus:bg-white focus:border-[#00ACB0]"
                   id="inline-password"
                   type="password"
                   placeholder="Mot de passe"
@@ -57,7 +60,7 @@ const Login = () => {
               <div>
                 <div className="flex justify-center">
                   <button
-                    class="my-4  shadow bg-[#00ACB0] w-4/5 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded  "
+                    className="my-4  shadow bg-[#00ACB0] w-4/5 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded  "
                     type="button" onClick={handleLogin}
                   >
                     Se connecter
@@ -70,7 +73,7 @@ const Login = () => {
 
           {/* conteneur de la partie droite */}
           <div className="bg-[#00ACB0] text-white flex flex-col justify-center items-center w-[45%] text-xl">
-            <div right login text>
+            <div>
               Bienvenue sur votre espace
             </div>
             <div className="font-bold mb-[4vh]">EMMAÜS CONNECT</div>

@@ -19,7 +19,7 @@ const NavBar = () => {
       <ul className="flex items-center gap-24">
 
 
-        <li className="text-l hidden lg:block tracking-wide hover:text-[#E52460] transition">
+        <li className="text-lg font-light hidden lg:block tracking-wide hover:text-[#E52460] transition">
           <NavLink to="/ajout">Ajouter un téléphone</NavLink>
 
         </li>

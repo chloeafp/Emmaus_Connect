@@ -1,15 +1,27 @@
 import React, { useContext, useState } from "react";
 import { AiOutlineInfoCircle } from "react-icons/ai";
+import { ImBin } from "react-icons/Im";
 import Menu_filtre from "../menu_filtrage/MenuFiltre";
 import SmartphoneContext from "../contexts/SmartphoneContext";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
+import axios from "axios";
 
 const ListeSmartphone = () => {
   const { smartphoneData } = useContext(SmartphoneContext);
+  const { setSmartPhoneData } = useContext(SmartphoneContext);
   const [search, setSearch] = useState("");
   const [filterArr, setFilterArr] = useState([]);
-  const navigate = useNavigate();
+
+  const handleDelete = (id) => {
+    console.log(id);
+    axios
+      .delete(`${import.meta.env.VITE_BACKEND_URL}/api/smartphone/${id}`)
+      .then(() => setSmartPhoneData(smartphoneData.filter((el)=> el.id !== id)))
+      .catch((error) => console.error(error.message));
+  }
+
+
 
   return (
     <>
@@ -45,6 +57,7 @@ const ListeSmartphone = () => {
                 <th>Prix</th>
                 <th>Date d'ajout</th>
                 <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody>
@@ -58,7 +71,7 @@ const ListeSmartphone = () => {
                         }
                       }
                       return false;
-                    }
+                       }
                     return true;
                   })
                   .filter((phone) =>
@@ -105,17 +118,22 @@ const ListeSmartphone = () => {
                             .join("/")}
                         </td>
 
-                        <td>
-                          <Link to={`/smartphone_details/${phone.id - 1}`}>
-                            <AiOutlineInfoCircle className="text-2xl hover:text-[#e52460] transition hover:scale-110" />
-                          </Link>
-                        </td>
-                      </tr>
-                    );
-                  })}
-            </tbody>
-          </table>
-        </div>
+
+                    <td>
+                      <Link to={`/smartphone_details/${phone.id}`}>
+                        <AiOutlineInfoCircle className="text-2xl hover:text-[#e52460] transition hover:scale-110"/>
+                      </Link>
+                    </td>
+                    <td>                      
+                        <ImBin className="text-2xl hover:text-[#e52460] transition scale-75 hover:scale-100 cursor-pointer"
+                        onClick={()=> handleDelete(phone.id)}/>                     
+                    </td>
+                  </tr>
+                );
+              })}
+          </tbody>
+        </table>
+      </div>
       </div>
     </>
   );

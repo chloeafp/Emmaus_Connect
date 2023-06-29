@@ -16,7 +16,7 @@ const General = ({ data, setData, setPage }) => {
 
 
         setData({ ...data, chargeur_cable: data.chargeur_cable });
-        console.warn(phone)
+
     }
 
     const savePhone = (e) => {

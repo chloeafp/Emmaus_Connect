@@ -1,16 +1,25 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import NavBar from "../NavBar/NavBar";
-import SmartphoneContext from "../contexts/SmartphoneContext";
 import iphoneTest from "../../assets/iphone-test.png";
+import axios from "axios";
 
 
 const SmartphoneDetails = () => {
-  const { smartphoneData } = useContext(SmartphoneContext);
+const [smartphoneData, setSmartphoneData] = useState(undefined)
   const params = useParams();
   const navigate = useNavigate();
+  console.log(params);
+console.log(smartphoneData);
+  useEffect(() => {
 
-  if (!smartphoneData || !smartphoneData[params.id]) {
+    axios
+      .get(`${import.meta.env.VITE_BACKEND_URL}/api/smartphone/${params.id}`)
+      .then((response) => setSmartphoneData(response.data))
+      .catch((error) => console.error(error.message));
+  }, []);
+
+  if (!smartphoneData || !smartphoneData.id) {
     return <div>Loading...</div>;
   }
   return (
@@ -34,40 +43,42 @@ const SmartphoneDetails = () => {
               <tbody className=" border-spacing-9">
                 <tr className="h-12">
                   <th>Marque :</th>
-                  <td>{smartphoneData[params.id].marque}</td>
+                  <td>{smartphoneData.marque}</td>
                 </tr>
                 <tr>
                   <th>Modèle :</th>
-                  <td>{smartphoneData[params.id].modele}</td>
+                  <td>{smartphoneData.modele}</td>
                 </tr>
                 <tr>
                   <th>Système d'exploitation :</th>
-                  <td>{smartphoneData[params.id].systeme_exploitation}</td>
+                  <td>{smartphoneData.systeme_exploitation}</td>
                 </tr>
                 <tr>
                   <th>RAM :</th>
-                  <td>{smartphoneData[params.id].ram}</td>
+                  <td>{smartphoneData.ram}</td>
                 </tr>
                 <tr>
                   <th>Stockage :</th>
-                  <td>{smartphoneData[params.id].stockage}</td>
+                  <td>{smartphoneData.stockage}</td>
                 </tr>
                 <tr>
                   <th>Taille d'écran :</th>
-                  <td>{smartphoneData[params.id].ecran}</td>
+                  <td>{smartphoneData.ecran}</td>
                 </tr>
                 <tr>
                   <th>Réseau :</th>
-                  <td>{smartphoneData[params.id].reseau}</td>
+                  <td>{smartphoneData.reseau}</td>
                 </tr>
                 <tr>
                   <th>Câble et chargeur fournis :</th>
-                  <td>{`${smartphoneData[params.id].chargeur_cable ? "Oui" : "Non"
+                  <td>{`${smartphoneData.chargeur_cable ? "Oui" : "Non"
                     }`}</td>
                 </tr>
               </tbody>
             </table>
-            <img src={smartphoneData[params.id].image ? smartphoneData[params.id].image:iphoneTest} alt="iphone" className="h-96" />
+
+            <img src={smartphoneData.image ? smartphoneData.image:iphoneTest} alt="iphone" className="h-96" />
+
           </div>
         </div>
       </div>

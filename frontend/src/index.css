@@ -11,3 +11,11 @@ body {
 * {
   box-sizing: border-box;
 }
+
+table tr td {
+  padding: 1rem;
+}
+
+thead tr th {
+  padding: 1rem;
+}

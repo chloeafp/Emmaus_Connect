@@ -9,7 +9,6 @@ function App() {
   const [user, setUser] = useState(undefined)
 
   useEffect(() => {
-
     axios
       .get(`${import.meta.env.VITE_BACKEND_URL}/api/smartphone`)
       .then((response) => setSmartPhoneData(response.data))

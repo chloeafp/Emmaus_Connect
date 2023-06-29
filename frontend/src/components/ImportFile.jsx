@@ -103,6 +103,7 @@ const ImportFile = () => {
                   <th>Marque</th>
                   <th>Modèle</th>
                   <th>Catégorie</th>
+                  <th>Prix</th>
                 </tr>
               </thead>
               <tbody>
@@ -112,6 +113,11 @@ const ImportFile = () => {
                         <td>{cell.marque}</td>
                         <td>{cell.modele}</td>
                         <td>{cell.categorie_prix}</td>
+                        {cell.categorie_prix === 1 && <td>Non vendable</td>}
+                        {cell.categorie_prix === 2 && <td className="text-green-700">90€ - 165€</td>}
+                        {cell.categorie_prix === 3 && <td className="text-yellow-400">165€ - 255€</td>}
+                        {cell.categorie_prix === 4 && <td className="text-orange-400">255€ - 375€</td>}
+                        {cell.categorie_prix === 5 && <td className="text-red-700">375€ et plus</td>}
                         </tr>
                     );
                     })}
